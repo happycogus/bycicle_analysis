@@ -9,12 +9,12 @@ st.set_page_config(page_title="서울시 따릉이 데이터 분석", layout="wi
 
 # 2. 데이터베이스 연결 확인 함수
 def check_db():
-    if not os.path.exists('bicycle.db'):
-        st.error("🚨 'bicycle.db' 파일을 찾을 수 없습니다! 데이터베이스 파일이 app.py와 같은 폴더에 있는지 확인해주세요.")
+    if not os.path.exists('bicycle.zip'):
+        st.error("🚨 'bicycle.zip' 파일을 찾을 수 없습니다! 데이터베이스 파일이 app.py와 같은 폴더에 있는지 확인해주세요.")
         st.stop()
 
 def run_query(query):
-    conn = sqlite3.connect('bicycle.db')
+    conn = sqlite3.connect('bicycle.zip')
     df = pd.read_sql(query, conn)
     conn.close()
     return df
